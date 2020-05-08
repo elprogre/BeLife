@@ -14,13 +14,13 @@
                 <TextBlock Height="15">Clientes</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnListaCliente" HorizontalAlignment="Left" Height="150" Margin="184,101,0,0" VerticalAlignment="Top" Width="150">
+        <Button x:Name="btnListaCliente" HorizontalAlignment="Left" Height="150" Margin="184,101,0,0" VerticalAlignment="Top" Width="150" Click="BtnListaCliente_Click">
             <StackPanel>
                 <Image Source="img/ClientSearch.png" Width="125" Height="125"></Image>
                 <TextBlock Height="15">Lista de clientes</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnContrato" HorizontalAlignment="Left" Height="150" Margin="351,101,0,0" VerticalAlignment="Top" Width="150">
+        <Button x:Name="btnContrato" HorizontalAlignment="Left" Height="150" Margin="351,101,0,0" VerticalAlignment="Top" Width="150" Click="BtnContrato_Click">
             <StackPanel>
                 <Image Source="img/Contratos.png" Width="125" Height="125"></Image>
                 <TextBlock Height="15">Contratos</TextBlock>

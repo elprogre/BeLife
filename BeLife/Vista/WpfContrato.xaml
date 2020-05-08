@@ -1,0 +1,16 @@
+﻿<Window x:Class="Vista.WpfContrato"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vista"
+        mc:Ignorable="d"
+        Title="WpfContrato" Height="500" Width="620" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Nro contrato:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.657,-0.189"/>
+        <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.021,-1.174"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="101,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="449,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140"/>
+
+    </Grid>
+</Window>

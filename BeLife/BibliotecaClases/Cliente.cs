@@ -40,7 +40,7 @@ namespace BibliotecaClases
                 }
                 else
                 {
-                    throw new Exception("No existe nombre");
+                    throw new Exception("No existe ese nombre");
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace BibliotecaClases
                 }
                 else
                 {
-                    throw new Exception("El apellido no existe");
+                    throw new Exception("No existe ese apellido");
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace BibliotecaClases
                 }
                 else
                 {
-                    throw new Exception("Es menor de edad");
+                    throw new Exception("Debe ser mayor de edad");
                 }
             }
         }
