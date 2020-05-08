@@ -5,12 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="WpfContrato" Height="500" Width="620" ResizeMode="NoResize">
+        Title="Contratos" Height="520" Width="620" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Nro contrato:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.657,-0.189"/>
-        <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.021,-1.174"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="101,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140"/>
-        <TextBox HorizontalAlignment="Left" Height="26" Margin="449,14,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="140"/>
+        <GroupBox x:Name="gpbDatosContrato" Header="Datos contrato" HorizontalAlignment="Left" Height="260" Margin="20,85,0,0" VerticalAlignment="Top" Width="571">
+            <Grid Margin="10,0,-2,-12">
+                <Label Content="Cliente:" HorizontalAlignment="Left" Margin="3,4,0,0" VerticalAlignment="Top"/>
+                <Label Content="Plan:" HorizontalAlignment="Left" Margin="3,44,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.927,1.516"/>
+                <Label Content="Fecha inicio vigencia:" HorizontalAlignment="Left" Margin="3,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.164,-0.157"/>
+                <Label Content="Fecha fin vigencia:" HorizontalAlignment="Left" Margin="322,84,0,0" VerticalAlignment="Top"/>
+                <Label Content="Declaracion salud:" HorizontalAlignment="Left" Margin="3,124,0,0" VerticalAlignment="Top"/>
+                <Label Content="Observaciones:" HorizontalAlignment="Left" Margin="3,164,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="26" Margin="137,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+                <ComboBox x:Name="cboPlan" HorizontalAlignment="Left" Margin="137,44,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
+                <DatePicker x:Name="dtpFechaInicioVigencia" HorizontalAlignment="Left" Margin="137,84,0,0" VerticalAlignment="Top" Width="150" Height="26"/>
+                <RadioButton x:Name="rbtSi" Content="Si" HorizontalAlignment="Left" Margin="141,130,0,0" VerticalAlignment="Top" GroupName="Salud" IsChecked="True"/>
+                <RadioButton x:Name="rbtNo" Content="No" HorizontalAlignment="Left" Margin="192,130,0,0" VerticalAlignment="Top" GroupName="Salud"/>
+                <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Height="66" Margin="137,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335"/>
+                <Label x:Name="lblFechaFinVigencia" Content="Label" HorizontalAlignment="Left" Margin="434,84,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gpbContrato" Header="Contrato" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="571" Margin="20,10,0,0">
+            <Grid Margin="10,0,-2,-12">
+                <Label Content="Nro contrato:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.657,-0.189"/>
+                <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.021,-1.174"/>
+                <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Height="26" Margin="101,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+                <Label x:Name="lblFechaCreacion" Content="Label" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="gpbPrima" Header="Prima" HorizontalAlignment="Left" Height="100" Margin="20,350,0,0" VerticalAlignment="Top" Width="571">
+            <Grid Margin="0,0,-2,-12">
+                <Label Content="Prima anual:" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top"/>
+                <Label Content="Prima mensual:" HorizontalAlignment="Left" Margin="302,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblPrimaAnual" Content="0" HorizontalAlignment="Left" Margin="100,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblPrimaMensual" Content="0" HorizontalAlignment="Left" Margin="397,10,0,0" VerticalAlignment="Top"/>
+            </Grid>
+        </GroupBox>
 
     </Grid>
 </Window>
