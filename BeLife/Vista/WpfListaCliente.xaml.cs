@@ -118,6 +118,14 @@ namespace Vista
                 {
                     ((WpfCliente)objeto).Llenar(c);
                 }
+                if (objeto.GetType() == typeof(WpfContrato))
+                {
+                    ((WpfContrato)objeto).LlenarCliente(c);
+                }
+                if (objeto.GetType() == typeof(WpfListaContrato))
+                {
+                    ((WpfListaContrato)objeto).LlenarRut(c);
+                }
             }
             catch (Exception ex)
             {

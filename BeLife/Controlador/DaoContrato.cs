@@ -75,8 +75,8 @@ namespace Controlador
                     c.Plan = new DaoPlan().Read(dr[3].ToString());
                     c.FechaInicioVigencia = DateTime.Parse(dr[4].ToString());
                     c.FechaFinVigencia = DateTime.Parse(dr[5].ToString());
-                    c.Vigente = dr[6].ToString().Equals("1") ? true : false;
-                    c.DeclaracionSalud = dr[7].ToString().Equals("1") ? true : false;
+                    c.Vigente = bool.Parse(dr[6].ToString());
+                    c.DeclaracionSalud = bool.Parse(dr[7].ToString());
                     c.PrimaAnual = float.Parse(dr[8].ToString());
                     c.PrimaMensual = float.Parse(dr[9].ToString());
                     c.Observaciones = dr[10].ToString();
@@ -113,8 +113,8 @@ namespace Controlador
                     c.Plan = new DaoPlan().Read(dr[3].ToString());
                     c.FechaInicioVigencia = DateTime.Parse(dr[4].ToString());
                     c.FechaFinVigencia = DateTime.Parse(dr[5].ToString());
-                    c.Vigente = dr[6].ToString().Equals("1") ? true : false;
-                    c.DeclaracionSalud = dr[7].ToString().Equals("1") ? true : false;
+                    c.Vigente = bool.Parse(dr[6].ToString());
+                    c.DeclaracionSalud = bool.Parse(dr[7].ToString());
                     c.PrimaAnual = float.Parse(dr[8].ToString());
                     c.PrimaMensual = float.Parse(dr[9].ToString());
                     c.Observaciones = dr[10].ToString();
@@ -151,8 +151,46 @@ namespace Controlador
                     c.Plan = new DaoPlan().Read(dr[3].ToString());
                     c.FechaInicioVigencia = DateTime.Parse(dr[4].ToString());
                     c.FechaFinVigencia = DateTime.Parse(dr[5].ToString());
-                    c.Vigente = dr[6].ToString().Equals("1") ? true : false;
-                    c.DeclaracionSalud = dr[7].ToString().Equals("1") ? true : false;
+                    c.Vigente = bool.Parse(dr[6].ToString());
+                    c.DeclaracionSalud = bool.Parse(dr[7].ToString());
+                    c.PrimaAnual = float.Parse(dr[8].ToString());
+                    c.PrimaMensual = float.Parse(dr[9].ToString());
+                    c.Observaciones = dr[10].ToString();
+                    lista.Add(c);
+                }
+                cone.Close();
+                return lista;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
+        public List<Contrato> ReadAllByPoliza(string idpoliza)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "sp_read_all_contrato_poliza";
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Connection = cone;
+                cmd.Parameters.Add("@plan", System.Data.SqlDbType.NVarChar, 5).Value = idpoliza;
+                List<Contrato> lista = new List<Contrato>();
+                cone.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Contrato c = new Contrato();
+                    c.Numero = dr[0].ToString();
+                    c.FechaCreacion = DateTime.Parse(dr[1].ToString());
+                    c.Cliente = new DaoCliente().Read(dr[2].ToString());
+                    c.Plan = new DaoPlan().Read(dr[3].ToString());
+                    c.FechaInicioVigencia = DateTime.Parse(dr[4].ToString());
+                    c.FechaFinVigencia = DateTime.Parse(dr[5].ToString());
+                    c.Vigente = bool.Parse(dr[6].ToString());
+                    c.DeclaracionSalud = bool.Parse(dr[7].ToString());
                     c.PrimaAnual = float.Parse(dr[8].ToString());
                     c.PrimaMensual = float.Parse(dr[9].ToString());
                     c.Observaciones = dr[10].ToString();
@@ -221,7 +259,7 @@ namespace Controlador
                 cmd.Parameters.Add("@salud", System.Data.SqlDbType.Bit).Value = c.DeclaracionSalud;
                 cmd.Parameters.Add("@primaanual", System.Data.SqlDbType.Float).Value = c.PrimaAnual;
                 cmd.Parameters.Add("@primamensual", System.Data.SqlDbType.Float).Value = c.PrimaMensual;
-                cmd.Parameters.Add("@obser", System.Data.SqlDbType.NVarChar).Value = c.Observaciones;
+                cmd.Parameters.Add("@obser", System.Data.SqlDbType.NVarChar, 50).Value = c.Observaciones;
                 cone.Open();
                 int x = cmd.ExecuteNonQuery();
                 cone.Close();

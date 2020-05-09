@@ -52,6 +52,18 @@ namespace Vista
             lblVigencia.Content = "Vigencia";
         }
 
+        public void LlenarCliente(Cliente clie)
+        {
+            vpa -= (float)recargo;
+            txtRut.Text = clie.Rut;
+            lblNombre.Content = clie.Nombre + ' ' + clie.Apellido;
+            Tarifador calculo = new Tarifador();
+            calculo.cliente = clie;
+            recargo = calculo.CalcularPrima();
+            vpa += (float)recargo;
+            lblPrimaAnual.Content = vpa;
+        }
+
         public void LlenarContrato(Contrato c)
         {
             txtNumero.Text = c.Numero;
@@ -62,11 +74,11 @@ namespace Vista
             lblFechaFinVigencia.Content = c.FechaFinVigencia.ToString("dd/MM/yyyy");
             if (c.Vigente)
             {
-                lblVigencia.Content = "Contrato vigente";
+                lblVigencia.Content = "Vigencia: Si";
             }
             else
             {
-                lblVigencia.Content = "Contrato NO vigente";
+                lblVigencia.Content = "Vigencia: No";
             }
 
             if (c.DeclaracionSalud)
@@ -128,14 +140,7 @@ namespace Vista
                 Cliente clie = cli.Read(txtRut.Text);
                 if (clie != null)
                 {
-                    vpa -= (float)recargo;
-                    txtRut.Text = clie.Rut;
-                    lblNombre.Content = clie.Nombre + ' ' + clie.Apellido;
-                    Tarifador calculo = new Tarifador();
-                    calculo.cliente = clie;
-                    recargo = calculo.CalcularPrima();
-                    vpa += (float)recargo;
-                    lblPrimaAnual.Content = vpa;
+                    LlenarCliente(clie);
                     MessageBox.Show("Cliente encontrado");
                 }
                 else
@@ -230,11 +235,115 @@ namespace Vista
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message);
             }
         }
 
 
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Contrato c = new Contrato();
+                DaoCliente dc = new DaoCliente();
+                Cliente cli = dc.Read(txtRut.Text);
+                c.Numero = txtNumero.Text;
+                c.FechaCreacion = DateTime.Now;
+
+                if (cli != null)
+                {
+                    c.Cliente = cli;
+                }
+                else
+                {
+                    throw new Exception("El rut del cliente no esta registrado");
+                }
+
+                if (cboPlan.SelectedIndex >= 0)
+                {
+                    c.Plan = (Plan)cboPlan.SelectedItem;
+                }
+                else
+                {
+                    throw new Exception("Seleccione un plan");
+                }
+                c.FechaInicioVigencia = (DateTime)dtpFechaInicioVigencia.SelectedDate;
+                c.FechaFinVigencia = c.FechaInicioVigencia.AddYears(1);
+                c.Vigente = true;
+                if (rbtSi.IsChecked == true)
+                {
+                    c.DeclaracionSalud = true;
+                }
+                else
+                {
+                    c.DeclaracionSalud = false;
+                }
+                c.Observaciones = txtObservaciones.Text;
+                c.PrimaAnual = (float)Math.Round(c.ValorPrimalAnual(), 4);
+                c.PrimaMensual = (float)Math.Round((c.PrimaAnual / 12), 4);
+
+                DaoContrato act = new DaoContrato();
+                Contrato contratoantiguo = act.Read(c.Numero);
+                if (contratoantiguo.Vigente)
+                {
+                    bool resp = act.UPDATE(c);
+                    MessageBox.Show(resp ? "Actualizo" : "No Actualizo, Ese numero de contrato no esta registrado");
+                    if (resp)
+                    {
+                        limpiar();
+                        txtRut.Focus();
+                    }
+                    else
+                    {
+                        txtRut.Focus();
+                    }
+                }
+                else
+                {
+                    throw new Exception("No se puede actualizar un contrato NO vigente");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
+        private void BtnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DaoContrato delete = new DaoContrato();
+                bool resp = delete.DELETE(txtNumero.Text);
+                if (resp)
+                {
+                    MessageBox.Show("Contrato:" + txtNumero.Text + "   Vigencia:Terminada");
+                    limpiar();
+                    txtNumero.Focus();
+                }
+                else
+                {
+                    throw new Exception("Contrato:" + txtNumero.Text + " no esta resgistrado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void BtnListaCliente_Click(object sender, RoutedEventArgs e)
+        {
+            WpfListaCliente ventana = new WpfListaCliente(this);
+            ventana.Show();
+        }
+
+        private void BtnListaContrato_Click(object sender, RoutedEventArgs e)
+        {
+            WpfListaContrato ventana = new WpfListaContrato(this);
+            ventana.Show();
+        }
     }
 }

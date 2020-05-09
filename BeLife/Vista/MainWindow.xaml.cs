@@ -45,7 +45,7 @@ namespace Vista
 
         private void BtnListaContrato_Click(object sender, RoutedEventArgs e)
         {
-            WpfListaContrato ventana = new WpfListaContrato();
+            WpfListaContrato ventana = new WpfListaContrato(this);
             ventana.Show();
         }
     }
