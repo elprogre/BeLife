@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Controlador;
+using BibliotecaClases;
 
 namespace Vista
 {
@@ -22,6 +24,10 @@ namespace Vista
         public WpfCliente()
         {
             InitializeComponent();
+            cboSexo.ItemsSource = new DaoSexo().ReadAll();
+            cboSexo.Items.Refresh();
+            cboEstadoCivil.ItemsSource = new DaoEstadoCivil().ReadAll();
+            cboEstadoCivil.Items.Refresh();
         }
     }
 }

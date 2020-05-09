@@ -136,5 +136,15 @@
     <Resource Include="img\DataSearch.png" />
     <Resource Include="img\Logo BeLife.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BibliotecaClases\BibliotecaClases.csproj">
+      <Project>{317ca0cc-08d5-4094-8b90-99a78dd848c7}</Project>
+      <Name>BibliotecaClases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controlador\Controlador.csproj">
+      <Project>{12ca5409-2391-4415-a14f-36bf85f44090}</Project>
+      <Name>Controlador</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
