@@ -30,9 +30,10 @@
         <GroupBox x:Name="gpbContrato" Header="Contrato" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="583" Margin="23,58,0,0">
             <Grid Margin="10,0,-2,-12">
                 <Label Content="Nro contrato:" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.657,-0.189"/>
-                <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="337,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.021,-1.174"/>
+                <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="260,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.021,-1.174"/>
                 <TextBox x:Name="txtNumero" HorizontalAlignment="Left" Height="26" Margin="101,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
-                <Label x:Name="lblFechaCreacion" Content="Label" HorizontalAlignment="Left" Margin="449,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblFechaCreacion" Content="Label" HorizontalAlignment="Left" Margin="367,10,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lblVigencia" Content="Vigencia" HorizontalAlignment="Left" Margin="451,10,0,0" VerticalAlignment="Top" Width="112"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="gpbPrima" Header="Prima" HorizontalAlignment="Left" Height="100" Margin="23,398,0,0" VerticalAlignment="Top" Width="583">
@@ -44,16 +45,16 @@
             </Grid>
         </GroupBox>
         <Image HorizontalAlignment="Left" Height="38" Margin="498,10,0,0" VerticalAlignment="Top" Width="94" Source="img/Logo BeLife.png"/>
-        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="38" Margin="23,10,0,0" VerticalAlignment="Top" Width="104"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="38" Margin="23,10,0,0" VerticalAlignment="Top" Width="104" Click="BtnLimpiar_Click"/>
         <Button x:Name="btnListaCliente" Content="Lista de clientes" HorizontalAlignment="Left" Height="38" Margin="132,10,0,0" VerticalAlignment="Top" Width="104"/>
         <Button x:Name="btnListaContrato" Content="Lista de contratos" HorizontalAlignment="Left" Height="38" Margin="241,10,0,0" VerticalAlignment="Top" Width="104"/>
-        <Button x:Name="btnCreate" HorizontalAlignment="Left" Height="100" Margin="25,512,0,0" VerticalAlignment="Top" Width="100">
+        <Button x:Name="btnCreate" HorizontalAlignment="Left" Height="100" Margin="25,512,0,0" VerticalAlignment="Top" Width="100" Click="BtnCreate_Click">
             <StackPanel>
                 <Image Source="img/ContractAdd.png" Width="75" Height="75"/>
                 <TextBlock><Run Text="Guardar"/></TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnRead" HorizontalAlignment="Left" Height="100" Margin="165,512,0,0" VerticalAlignment="Top" Width="100">
+        <Button x:Name="btnRead" HorizontalAlignment="Left" Height="100" Margin="165,512,0,0" VerticalAlignment="Top" Width="100" Click="BtnRead_Click">
             <StackPanel>
                 <Image Source="img/ContractSearch.png" Width="75" Height="75"/>
                 <TextBlock><Run Text="Buscar"/></TextBlock>
