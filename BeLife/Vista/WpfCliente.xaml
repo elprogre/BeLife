@@ -5,21 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Clientes" Height="500" Width="470" ResizeMode="NoResize">
+        Title="Clientes" Height="499" Width="471" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Rut:" HorizontalAlignment="Left" Margin="30,49,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nombres:" HorizontalAlignment="Left" Margin="30,89,0,0" VerticalAlignment="Top"/>
-        <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="30,129,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="30,169,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sexo:" HorizontalAlignment="Left" Margin="30,209,0,0" VerticalAlignment="Top"/>
-        <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="30,249,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="190,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
-        <TextBox x:Name="txtNombres" HorizontalAlignment="Left" Height="23" Margin="190,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
-        <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="190,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
-        <DatePicker x:Name="dtpNacimiento" HorizontalAlignment="Left" Margin="190,173,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="190,213,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboEstadoCivil" HorizontalAlignment="Left" Margin="190,253,0,0" VerticalAlignment="Top" Width="120"/>
-        <Image HorizontalAlignment="Left" Height="38" Margin="340,10,0,0" VerticalAlignment="Top" Width="94" Source="img/Logo BeLife.png"/>
+        <Image HorizontalAlignment="Left" Height="38" Margin="344,15,0,0" VerticalAlignment="Top" Width="94" Source="img/Logo BeLife.png"/>
         <Button x:Name="btnCreate" HorizontalAlignment="Left" Height="100" Margin="10,351,0,0" VerticalAlignment="Top" Width="100" Click="BtnCreate_Click">
             <StackPanel>
                 <Image Source="img/ClientAdd.png" Width="75" Height="75"></Image>
@@ -32,19 +20,36 @@
                 <TextBlock>Buscar</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnUpdate" HorizontalAlignment="Left" Height="100" Margin="235,351,0,0" VerticalAlignment="Top" Width="100">
+        <Button x:Name="btnUpdate" HorizontalAlignment="Left" Height="100" Margin="235,351,0,0" VerticalAlignment="Top" Width="100" Click="BtnUpdate_Click">
             <StackPanel>
                 <Image Source="img/ClientUpdate.png" Width="75" Height="75"></Image>
                 <TextBlock>Actualizar</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnDelete" HorizontalAlignment="Left" Height="100" Margin="344,351,0,0" VerticalAlignment="Top" Width="100">
+        <Button x:Name="btnDelete" HorizontalAlignment="Left" Height="100" Margin="344,351,0,0" VerticalAlignment="Top" Width="100" Click="BtnDelete_Click">
             <StackPanel>
                 <Image Source="img/ClientDelete.png" Width="75" Height="75"></Image>
                 <TextBlock>Eliminar</TextBlock>
             </StackPanel>
         </Button>
-        <Button x:Name="btnListaCliente" Content="Clientes" HorizontalAlignment="Left" Height="23" Margin="371,53,0,0" VerticalAlignment="Top" Width="73"/>
+        <GroupBox x:Name="groupBox" Header="Datos cliente" HorizontalAlignment="Left" Height="262" Margin="13,48,0,0" VerticalAlignment="Top" Width="431">
+            <Grid Margin="0,0,4,4">
+                <Label Content="Rut:" HorizontalAlignment="Left" Margin="4,11,0,0" VerticalAlignment="Top"/>
+                <Label Content="Nombres:" HorizontalAlignment="Left" Margin="4,51,0,0" VerticalAlignment="Top"/>
+                <Label Content="Apellidos:" HorizontalAlignment="Left" Margin="4,91,0,0" VerticalAlignment="Top"/>
+                <Label Content="Fecha de nacimiento:" HorizontalAlignment="Left" Margin="4,131,0,0" VerticalAlignment="Top"/>
+                <Label Content="Sexo:" HorizontalAlignment="Left" Margin="4,171,0,0" VerticalAlignment="Top"/>
+                <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="4,211,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="164,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150"/>
+                <TextBox x:Name="txtNombres" HorizontalAlignment="Left" Height="23" Margin="164,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                <TextBox x:Name="txtApellidos" HorizontalAlignment="Left" Height="23" Margin="164,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                <DatePicker x:Name="dtpNacimiento" HorizontalAlignment="Left" Margin="164,135,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="164,175,0,0" VerticalAlignment="Top" Width="120"/>
+                <ComboBox x:Name="cboEstadoCivil" HorizontalAlignment="Left" Margin="164,215,0,0" VerticalAlignment="Top" Width="120"/>
+                <Button x:Name="btnListaCliente" Content="Clientes" HorizontalAlignment="Left" Height="23" Margin="339,15,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.671,1.522" Click="BtnListaCliente_Click"/>
+            </Grid>
+        </GroupBox>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Height="28" Margin="13,15,0,0" VerticalAlignment="Top" Width="73" Click="BtnLimpiar_Click"/>
 
     </Grid>
 </Window>

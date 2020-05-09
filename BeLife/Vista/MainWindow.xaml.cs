@@ -33,7 +33,7 @@ namespace Vista
 
         private void BtnListaCliente_Click(object sender, RoutedEventArgs e)
         {
-            WpfListaCliente ventana = new WpfListaCliente();
+            WpfListaCliente ventana = new WpfListaCliente(this);
             ventana.Show();
         }
 

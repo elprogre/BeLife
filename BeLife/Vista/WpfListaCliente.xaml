@@ -12,17 +12,17 @@
                 <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="26" Margin="61,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
                 <ComboBox x:Name="cboSexo" HorizontalAlignment="Left" Margin="311,10,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
                 <ComboBox x:Name="cboEstadoCivil" HorizontalAlignment="Left" Margin="552,10,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
-                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="61,34,0,0" VerticalAlignment="Top" Width="140"/>
-                <Button x:Name="btnFiltrarSexo" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="311,36,0,0" VerticalAlignment="Top" Width="140"/>
-                <Button x:Name="btnFiltrarEstadoCivil" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="552,36,0,0" VerticalAlignment="Top" Width="140"/>
+                <Button x:Name="btnFiltrarRut" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="61,34,0,0" VerticalAlignment="Top" Width="140" Click="BtnFiltrarRut_Click"/>
+                <Button x:Name="btnFiltrarSexo" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="311,36,0,0" VerticalAlignment="Top" Width="140" Click="BtnFiltrarSexo_Click"/>
+                <Button x:Name="btnFiltrarEstadoCivil" Content="Filtrar" HorizontalAlignment="Left" Height="23" Margin="552,36,0,0" VerticalAlignment="Top" Width="140" Click="BtnFiltrarEstadoCivil_Click"/>
                 <Label Content="Rut:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top"/>
                 <Label Content="Sexo:" HorizontalAlignment="Left" Margin="267,10,0,0" VerticalAlignment="Top"/>
                 <Label Content="Estado civil:" HorizontalAlignment="Left" Margin="476,10,0,0" VerticalAlignment="Top"/>
             </Grid>
         </GroupBox>
         <DataGrid x:Name="dtgClientes" HorizontalAlignment="Left" Height="334" Margin="19,111,0,0" VerticalAlignment="Top" Width="610"/>
-        <Button x:Name="btnLimpiar" Content="Quitar filtros" HorizontalAlignment="Left" Height="44" Margin="634,111,0,0" VerticalAlignment="Top" Width="108"/>
-        <Button x:Name="btnTraspasar" Content="Traspasar" HorizontalAlignment="Left" Height="44" Margin="634,160,0,0" VerticalAlignment="Top" Width="108"/>
+        <Button x:Name="btnLimpiar" Content="Quitar filtros" HorizontalAlignment="Left" Height="44" Margin="634,111,0,0" VerticalAlignment="Top" Width="108" Click="BtnLimpiar_Click"/>
+        <Button x:Name="btnTraspasar" Content="Traspasar" HorizontalAlignment="Left" Height="44" Margin="634,160,0,0" VerticalAlignment="Top" Width="108" Click="BtnTraspasar_Click"/>
 
     </Grid>
 </Window>
