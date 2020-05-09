@@ -45,7 +45,7 @@ namespace Vista
             lblNombre.Content = "Cliente";
             cboPlan.SelectedIndex = -1;
             dtpFechaInicioVigencia.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            lblFechaFinVigencia.Content = 0;
+            lblFechaFinVigencia.Content = "";
             lblPrimaAnual.Content = 0;
             lblPrimaMensual.Content = 0;
             txtObservaciones.Text = "";
@@ -61,7 +61,8 @@ namespace Vista
             calculo.cliente = clie;
             recargo = calculo.CalcularPrima();
             vpa += (float)recargo;
-            lblPrimaAnual.Content = vpa;
+            lblPrimaAnual.Content = vpa+" UF";
+            lblPrimaMensual.Content = Math.Round(vpa / 12, 4)+" UF";
         }
 
         public void LlenarContrato(Contrato c)
@@ -116,7 +117,8 @@ namespace Vista
                     lblPoliza.Content = p.PolizaActual;
                     prima = p.PrimaBase;
                     vpa += prima;
-                    lblPrimaAnual.Content = vpa;
+                    lblPrimaAnual.Content = vpa+" UF";
+                    lblPrimaMensual.Content = Math.Round(vpa / 12, 4)+" UF";
                 }
             }
             catch (Exception ex)
@@ -315,18 +317,29 @@ namespace Vista
         {
             try
             {
-                DaoContrato delete = new DaoContrato();
-                bool resp = delete.DELETE(txtNumero.Text);
-                if (resp)
+                MessageBoxResult resultado = MessageBox.Show("¿Desea terminar el contrato?", "confirmar",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (resultado == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show("Contrato:" + txtNumero.Text + "   Vigencia:Terminada");
-                    limpiar();
-                    txtNumero.Focus();
+                    DaoContrato delete = new DaoContrato();
+                    bool resp = delete.DELETE(txtNumero.Text);
+                    if (resp)
+                    {
+                        MessageBox.Show("Contrato:" + txtNumero.Text + "   Vigencia:Terminada");
+                        limpiar();
+                        txtNumero.Focus();
+                    }
+                    else
+                    {
+                        throw new Exception("Contrato:" + txtNumero.Text + " no esta resgistrado");
+                    }
                 }
                 else
                 {
-                    throw new Exception("Contrato:" + txtNumero.Text + " no esta resgistrado");
+                    limpiar();
+                    txtRut.Focus();
                 }
+                
             }
             catch (Exception ex)
             {

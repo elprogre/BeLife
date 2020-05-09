@@ -25,11 +25,13 @@ namespace Vista
             InitializeComponent();
         }
 
+
         private void BtnCliente_Click(object sender, RoutedEventArgs e)
         {
             WpfCliente ventana = new WpfCliente();
             ventana.Show();
         }
+
 
         private void BtnListaCliente_Click(object sender, RoutedEventArgs e)
         {
@@ -37,16 +39,19 @@ namespace Vista
             ventana.Show();
         }
 
+
         private void BtnContrato_Click(object sender, RoutedEventArgs e)
         {
             WpfContrato ventana = new WpfContrato();
             ventana.Show();
         }
 
+
         private void BtnListaContrato_Click(object sender, RoutedEventArgs e)
         {
             WpfListaContrato ventana = new WpfListaContrato(this);
             ventana.Show();
         }
+
     }
 }

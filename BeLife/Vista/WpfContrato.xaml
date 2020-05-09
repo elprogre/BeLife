@@ -21,7 +21,7 @@
                 <RadioButton x:Name="rbtSi" Content="Si" HorizontalAlignment="Left" Margin="141,130,0,0" VerticalAlignment="Top" GroupName="Salud" IsChecked="True"/>
                 <RadioButton x:Name="rbtNo" Content="No" HorizontalAlignment="Left" Margin="192,130,0,0" VerticalAlignment="Top" GroupName="Salud"/>
                 <TextBox x:Name="txtObservaciones" HorizontalAlignment="Left" Height="66" Margin="137,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="335"/>
-                <Label x:Name="lblFechaFinVigencia" Content="Label" HorizontalAlignment="Left" Margin="434,84,0,0" VerticalAlignment="Top" Width="119"/>
+                <Label x:Name="lblFechaFinVigencia" Content="" HorizontalAlignment="Left" Margin="434,84,0,0" VerticalAlignment="Top" Width="119"/>
                 <Button x:Name="btnComprobar" Content="Comprobar si existe" HorizontalAlignment="Left" Height="26" Margin="282,4,0,0" VerticalAlignment="Top" Width="119" Click="BtnComprobar_Click"/>
                 <Label x:Name="lblNombre" Content="Cliente" HorizontalAlignment="Left" Margin="406,4,0,0" VerticalAlignment="Top" Width="134"/>
                 <Label x:Name="lblPoliza" Content="Poliza" HorizontalAlignment="Left" Margin="322,44,0,0" VerticalAlignment="Top" Width="100"/>

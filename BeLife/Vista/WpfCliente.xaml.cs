@@ -182,14 +182,14 @@ namespace Vista
                 if (resultado == MessageBoxResult.Yes)
                 {
                     DaoCliente eli = new DaoCliente();
-                    /*DaoContrato con = new DaoContrato();
+                    DaoContrato con = new DaoContrato();
                     foreach (Contrato item in con.ReadAll())
                     {
                         if (item.Cliente.Rut == txtRut.Text)
                         {
                             throw new Exception("No se puede eliminar, El cliente posee contrato(s)");
                         }
-                    }*/
+                    }
                     bool resp = eli.Delete(txtRut.Text);
 
                     MessageBox.Show(resp ? "Eliminado" : "No Elimino, ese rut no existe");

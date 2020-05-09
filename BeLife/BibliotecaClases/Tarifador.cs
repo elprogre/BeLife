@@ -19,36 +19,36 @@ namespace BibliotecaClases
             int annos = DateTime.Now.Year - cliente.FechaNacimiento.Year;
             if (annos >= 18 && annos <= 25)
             {
-                recargo += 0.036;
+                recargo += 3.6;
             }
             if (annos >= 26 && annos <= 45)
             {
-                recargo += 0.024;
+                recargo += 2.4;
             }
             if (annos > 45)
             {
-                recargo += 0.06;
+                recargo += 6;
             }
             if (cliente.Sexo.Descripcion.Equals("Hombre"))
             {
-                recargo += 0.024;
+                recargo += 2.4;
             }
             if (cliente.Sexo.Descripcion.Equals("Mujer"))
             {
-                recargo += 0.012;
+                recargo += 1.2;
             }
 
             if (cliente.EstadoCivil.Descripcion.Equals("Soltero"))
             {
-                recargo += 0.048;
+                recargo += 4.8;
             }
-            if (cliente.EstadoCivil.Descripcion.Equals("Casado"))
+            else if (cliente.EstadoCivil.Descripcion.Equals("Casado"))
             {
-                recargo += 0.024;
+                recargo += 2.4;
             }
             else
             {
-                recargo += 0.036;
+                recargo += 3.6;
             }
             return recargo;
 
