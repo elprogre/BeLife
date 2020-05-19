@@ -10,7 +10,7 @@ namespace Controlador
     public class Conexion
     {
         private SqlConnection cone;
-        private string cadena = @"Data Source=DESKTOP-M3NQ910;Initial Catalog=BeLife;Integrated Security=True";
+        private string cadena = @"Data Source=DESKTOP-LS6TSU7\SQLEXPRESS;Initial Catalog=BeLife;Integrated Security=True";
         public Conexion()
         {
             if (cone==null)
