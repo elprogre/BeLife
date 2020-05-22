@@ -7,10 +7,9 @@ using Biblioteca.DALC;
 
 namespace Biblioteca.Negocio
 {
-    public class Cliente
+    public class Cliente : IMetodos
     {
         private string _rutcliente;
-
         public string RutCliente
         {
             get { return _rutcliente; }
@@ -165,7 +164,7 @@ namespace Biblioteca.Negocio
         {
             try
             {
-                DALC.Cliente cli = bdd.Cliente.First(c=>c.RutCliente == RutCliente);
+                DALC.Cliente cli = bdd.Cliente.First(c=>c.RutCliente.Equals(RutCliente));
                 CommonBC.Syncronize(cli,this);
                 return true;
             }
@@ -175,11 +174,91 @@ namespace Biblioteca.Negocio
             }
         }
 
+        public bool Update()
+        {
+            try
+            {
+                DALC.Cliente cli = bdd.Cliente.First(c => c.RutCliente.Equals(this.RutCliente));
+                CommonBC.Syncronize(this, cli);
+                bdd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
+        public bool Delete()
+        {
+            try
+            {
+                DALC.Cliente cli = 
+                    bdd.Cliente.First(c => c.RutCliente.Equals(this.RutCliente));
+                bdd.Cliente.Remove(cli);
+                bdd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
+        public List<Cliente> ReadAll()
+        {
+            try
+            {
+                List<Cliente> lista_clase_cliente = new List<Cliente>();
+                List<DALC.Cliente> lista_cliente = bdd.Cliente.ToList();
+                foreach (DALC.Cliente item in lista_cliente)
+                {
+                    Cliente cli = new Cliente();
+                    CommonBC.Syncronize(item,cli);
+                    lista_clase_cliente.Add(cli);
+                }
+                return lista_clase_cliente;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
+        public List<Cliente> ReadAllByRut()
+        {
+            try
+            {
+                return ReadAll().Where(c=> c.RutCliente.Equals(RutCliente)).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
+        public List<Cliente> ReadAllByTipoEmpresa()
+        {
+            try
+            {
+                return ReadAll().Where(c => c.IdTipoEmpresa == IdTipoEmpresa).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
-
+        public List<Cliente> ReadAllByActividad()
+        {
+            try
+            {
+                return ReadAll().Where(c => c.IdActividadEmpresa == IdActividadEmpresa).ToList();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }
