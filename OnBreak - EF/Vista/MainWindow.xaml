@@ -8,6 +8,7 @@
         Title="Inicio" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Button x:Name="btnCliente" Content="Clientes" HorizontalAlignment="Left" Height="129" Margin="34,229,0,0" VerticalAlignment="Top" Width="145" Click="BtnCliente_Click"/>
+        <Button x:Name="btnListaCliente" Content="Lista de clientes" HorizontalAlignment="Left" Height="129" Margin="198,229,0,0" VerticalAlignment="Top" Width="145" Click="btnListaCliente_Click"/>
 
     </Grid>
 </Window>
